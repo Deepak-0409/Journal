@@ -1,0 +1,23 @@
+<%-include("partials/header")%>
+
+<h1>Welcome!</h1>
+<p><%= homeContent %></p>
+
+<div>
+    <a class="my-5 btn btn-dark h5 pb-2" href="/compose"><i class="bi bi-journal-plus h4 me-2 mt-0"></i>Compose</a>
+</div>
+<% posts.forEach(function(post){ %>
+    
+    <div>
+        <div class="d-inline-flex flex-row justify-content-between align-items-center">
+            <h1 class="title me-5"> <%= post.title %> </h1>
+            <form method="get" action="/delete/<%=post._id%>">
+                <button class="btn btn-danger delete" type="submit"><i class="bi bi-trash-fill"></i></button>
+            </form>
+        </div>
+        <p class="content"> <%= post.body.substring(0,100) + " ..." %> <a href= "/posts/<%=post._id%>" >Read More</a> </p>
+    </div>
+
+<% } )%>
+
+<%-include("partials/footer")%>
