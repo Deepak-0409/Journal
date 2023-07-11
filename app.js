@@ -43,7 +43,7 @@ app.get("/",function(req,res)
     }
     else
     {
-      res.render("home",{homeContent: homeStartingContent, posts: foundPosts});
+      res.render("index",{homeContent: homeStartingContent, posts: foundPosts});
     }
   })
 });
